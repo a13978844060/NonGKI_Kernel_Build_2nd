@@ -112,9 +112,6 @@ jobs:
 
           # sed -i 's|\$(obj)/config_data.gz: [^ ]* FORCE|\$(obj)/config_data.gz: $(KCONFIG_CONFIG) FORCE|' kernel/Makefile
 
-      - name: 🪝 Patch Kernel of SUSFS
-        uses: ./.github/workflows/patch-susfs
-        
       - name: Setup KernelSU
         if: env.ENABLE_KERNELSU == 'true'
         run: |
