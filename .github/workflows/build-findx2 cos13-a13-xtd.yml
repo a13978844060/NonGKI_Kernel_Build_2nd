@@ -15,8 +15,8 @@ env:
   KERNEL_SOURCE : "https://github.com/a13978844060/android_kernel_oplus_sm8250"
   KERNEL_BRANCH : "oss-t"
 
-  CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz"
-  CLANG_BRANCH : ""
+  CLANG_BRANCH : "android-gs-bluejay-5.10-android13"
+  CLANG_VERSION : "r416183b"
 
   GCC_GNU : false
   GCC_64_SOURCE : "https://github.com/JackA1ltman/Google-GCC-Android-4.9.git"
