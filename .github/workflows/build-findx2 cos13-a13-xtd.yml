@@ -29,10 +29,6 @@ env:
   DEFCONFIG_ORIGIN_IMAGE: ""
   DEFCONFIG_FROM_BOOT: false
 
-  KERNELSU_SOURCE : "https://raw.githubusercontent.com/backslashxx/KernelSU/refs/heads/master/kernel/setup.sh"
-  KERNELSU_BRANCH : "12107+155"
-  KERNELSU_NAME : "KernelSU"
-
   SUSFS_ENABLE : true
   SUSFS_FIXED : true
   SUSFS_UPDATE : false
@@ -118,7 +114,14 @@ jobs:
 
       - name: 🪝 Patch Kernel of SUSFS
         uses: ./.github/workflows/patch-susfs
-
+        
+      - name: Setup KernelSU
+        if: env.ENABLE_KERNELSU == 'true'
+        run: |
+         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
+         curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s nongki
+         echo "UPLOADNAME=-KernelSU" >> $GITHUB_ENV
+         
       - name: 🧰 Patch Kernel of Re:Kernel
         uses: ./.github/workflows/patch-rekernel
 
