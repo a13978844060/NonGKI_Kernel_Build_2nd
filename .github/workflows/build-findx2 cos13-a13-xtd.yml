@@ -80,7 +80,10 @@ env:
 jobs:
   build-kernel:
     name: Findx2 Series (ColorOS 13 A13)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    container:
+      image: ubuntu:20.04  
+      options: --privileged
     env:
       CCACHE_COMPILERCHECK: "%compiler% -dumpmachine; %compiler% -dumpversion"
       CCACHE_NOHASHDIR: "true"
