@@ -1,4 +1,4 @@
-name: Build Onelus 8 Series (OxygenOS 13 A13) (XTD Kernel)
+name: Build Findx2 Series (ColorOS 13 A13)
 
 on:
   workflow_call:
@@ -6,14 +6,14 @@ on:
 
 env:
   # Device env
-  DEVICE_NAME : "oneplus_8_cn"
-  DEVICE_CODENAME : "instantnoodle"
+  DEVICE_NAME : "Findx2_cn"
+  DEVICE_CODENAME : "PDEM30"
 
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld"
 
-  KERNEL_SOURCE : "https://github.com/ppajda/android_kernel_oneplus_sm8250.git"
-  KERNEL_BRANCH : "oos13.1"
+  KERNEL_SOURCE : "https://github.com/a13978844060/android_kernel_oplus_sm8250"
+  KERNEL_BRANCH : "oss-t"
 
   CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz"
   CLANG_BRANCH : ""
@@ -25,7 +25,7 @@ env:
   GCC_32_BRANCH : "arm32"
 
   DEFCONFIG_SOURCE: ""
-  DEFCONFIG_NAME : "xtd_defconfig"
+  DEFCONFIG_NAME : "stock_defconfig"
   DEFCONFIG_ORIGIN_IMAGE: ""
   DEFCONFIG_FROM_BOOT: false
 
@@ -83,8 +83,8 @@ env:
 
 jobs:
   build-kernel:
-    name: Onelus 8 Series (OxygenOS 13 A13) (XTD Kernel)
-    runs-on: ubuntu-22.04
+    name: Findx2 Series (ColorOS 13 A13)
+    runs-on: ubuntu-20.04
     env:
       CCACHE_COMPILERCHECK: "%compiler% -dumpmachine; %compiler% -dumpversion"
       CCACHE_NOHASHDIR: "true"
